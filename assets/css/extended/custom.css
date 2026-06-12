@@ -108,7 +108,7 @@ a:hover {
     justify-content: center;
     gap: 20px;
     margin-top: 15px;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     border-bottom: 2px solid var(--gold);
     width: 100%;
     margin-bottom: 0 !important;
@@ -159,8 +159,10 @@ a:hover {
     position: relative;
     overflow: hidden;
 }
+/* The gold line under the profile is just a separator. Posts sit BELOW it
+   with a gap, each as its own complete bordered frame (not attached). */
 .post-entry:first-of-type {
-    border-top: none !important;
+    margin-top: 24px !important;
 }
 .post-entry:hover {
     transform: translateY(-2px);
@@ -182,6 +184,46 @@ a:hover {
 }
 .back-home a:hover {
     color: var(--ember);
+}
+
+/* Prev / next post navigation — full-width bordered ember cards,
+   matching the post panels (overrides PaperMod's half-width bar). */
+.paginav {
+    display: flex;
+    gap: 12px;
+    background: none;
+    border: none;
+    border-radius: 0;
+    margin-top: 10px;
+}
+.paginav a {
+    flex: 1 1 0;
+    width: auto;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    color: var(--primary);
+    padding: 14px 16px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.paginav .prev,
+.paginav .next {
+    width: auto;
+}
+.paginav a:hover {
+    border-color: var(--ember);
+    background: var(--entry);
+    transform: translateY(-2px);
+}
+.paginav span:hover:not(.title) {
+    box-shadow: none;
+}
+.paginav .title {
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 0.78em;
 }
 
 /* Buttons — flat ember */
