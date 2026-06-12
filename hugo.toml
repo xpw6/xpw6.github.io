@@ -1,0 +1,33 @@
+baseURL = 'https://xpw6.github.io/'
+languageCode = 'en-us'
+title = 'Essam Alanazi'
+theme = 'PaperMod'
+
+[params]
+  env = 'production'
+  defaultTheme = 'dark'
+  disableThemeToggle = false
+  hideFooter = true
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  mainSections = ["research"]
+  
+  [params.profileMode]
+    enabled = true
+    title = "Essam Alanazi"
+    subtitle = "Researcher"
+    imageUrl = "josh.gif"
+    imageWidth = 250
+    imageHeight = 250
+    imageTitle = "Essam Alanazi"
+    
+  [[params.socialIcons]]
+    name = "X"
+    url = "https://x.com/xxpw666"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/xpw6/"

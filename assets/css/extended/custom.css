@@ -1,0 +1,291 @@
+/* =====================================================================
+   Ember theme — palette sampled from the profile image (josh.gif):
+   cave darks #230003 / #550A0B, fire glow #DF5E29 / #EA8F35 / #F0A450,
+   gold #EFD26B, warm cream highlights. Tuned for eye comfort: warm
+   (not cold-black) surfaces, parchment body text, softened accents.
+   ===================================================================== */
+
+:root[data-theme="dark"] {
+    /* Core surfaces — warm ember-charcoal, lifted off pure black */
+    --theme: #150806;          /* Page background (the cave)            */
+    --entry: #221010;          /* Cards / panels (lit cave wall)        */
+    --tertiary: #341714;       /* Elevated surfaces / hover             */
+    --code-block-bg: #0E0604;  /* Code — warm near-black, not cold      */
+    --code-bg: #0E0604;
+    --border: #43201A;         /* Dividers — soft rust                  */
+
+    /* Text */
+    --primary: #E9D6AC;        /* Body — warm parchment                 */
+    --content: #E9D6AC;
+    --secondary: #C39A6B;      /* Muted / meta — readable tan           */
+
+    /* Accents */
+    --gold: #EFC15A;           /* Firelight gold — headings, lines      */
+    --ember: #E8763C;          /* Ember orange — links, buttons         */
+    --ember-bright: #F2B45E;   /* Hover — brighter amber                */
+    --primary-accent: #E8763C;
+}
+
+/* Headings — firelight gold */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--gold);
+}
+
+/* Links — ember, brightening to amber on hover */
+a {
+    color: var(--ember);
+}
+a:hover {
+    color: var(--ember-bright);
+}
+
+/* Warm text selection */
+::selection {
+    background: #5A2418;
+    color: #F4E6C6;
+}
+
+/* Subtle warm scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--theme); }
+::-webkit-scrollbar-thumb {
+    background: #3A1B15;
+    border-radius: 6px;
+    border: 2px solid var(--theme);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--border); }
+
+/* ---------------------------------------------------------------------
+   Hero / profile area
+   ------------------------------------------------------------------- */
+.profile {
+    position: relative;
+    overflow: hidden;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    min-height: 0 !important;
+    padding: 20px 20px 0 20px !important;
+    margin-bottom: 0 !important;
+}
+
+.profile_inner {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.profile h1 {
+    color: var(--gold);
+}
+.profile span {
+    color: var(--secondary);
+}
+
+/* Profile image — warm gold rim, like the firelight on the subject */
+.profile img {
+    border-radius: 8px !important;
+    object-fit: cover !important;
+    width: 250px !important;
+    height: 250px !important;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 28px rgba(232, 118, 60, 0.28); /* faint ember glow */
+}
+
+/* Blinking cursor on the subtitle */
+.profile span::after {
+    content: '_';
+    animation: blink 1s step-end infinite;
+    color: var(--gold);
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Social icons row */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+    width: 100%;
+    margin-bottom: 0 !important;
+}
+.social-icons a {
+    color: var(--gold) !important;
+}
+.social-icons a:hover {
+    color: var(--ember) !important;
+}
+
+/* ---------------------------------------------------------------------
+   Table of contents — readable parchment body, gold frame
+   ------------------------------------------------------------------- */
+.toc {
+    background: var(--code-block-bg) !important;
+    border: 1px solid var(--gold) !important;
+    padding: 15px !important;
+    margin-bottom: 20px !important;
+    border-radius: 4px !important;
+}
+.toc summary {
+    color: var(--gold) !important;
+    font-weight: bold !important;
+}
+.toc .inner, .toc a {
+    color: var(--primary) !important;
+}
+.toc a:hover {
+    color: var(--ember) !important;
+    text-decoration: underline !important;
+}
+
+/* ---------------------------------------------------------------------
+   Research list
+   ------------------------------------------------------------------- */
+.main {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+.post-entry {
+    margin-top: 0 !important;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: 0px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+.post-entry:first-of-type {
+    border-top: none !important;
+}
+.post-entry:hover {
+    transform: translateY(-2px);
+    border-color: var(--ember);
+}
+
+/* Back button */
+.back-home {
+    margin-bottom: 20px;
+}
+.back-home a {
+    color: var(--gold);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+.back-home a:hover {
+    color: var(--ember);
+}
+
+/* Buttons — flat ember */
+.profile .buttons .button, .button {
+    background: var(--ember);
+    color: #1A0A06;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.2s ease;
+}
+.profile .buttons .button:hover, .button:hover {
+    background: var(--gold);
+    color: #1A0A06;
+}
+
+/* ---------------------------------------------------------------------
+   Code — parchment text (comfortable for long reads) with warm tokens.
+   The old theme rendered ALL code in saturated orange, which was hard
+   on the eyes; here only meaningful tokens carry colour.
+   ------------------------------------------------------------------- */
+.highlight pre, pre, code {
+    background-color: var(--code-block-bg) !important;
+    color: #E0CEA4 !important;            /* default code text — parchment */
+    border: 1px solid var(--border);
+}
+
+/* keywords */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kt, .highlight .kv {
+    color: var(--gold) !important;
+}
+/* comments — recede */
+.highlight .c, .highlight .c1, .highlight .ch, .highlight .cm, .highlight .cp, .highlight .cpf, .highlight .cs {
+    color: #9C7A52 !important;
+    font-style: italic;
+}
+/* strings — warm sand */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .se, .highlight .sh, .highlight .si, .highlight .sx, .highlight .sr, .highlight .ss {
+    color: #D9A368 !important;
+}
+/* numbers / literals — ember */
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh, .highlight .mo, .highlight .mb, .highlight .il, .highlight .kc {
+    color: #E8895A !important;
+}
+/* function / builtin names — soft amber */
+.highlight .nf, .highlight .nb, .highlight .fm {
+    color: #EAB873 !important;
+}
+
+/* Keep header clean */
+.nav .logo > a { display: none !important; }
+.nav .logo { margin-left: 0; }
+
+/* =====================================================================
+   Light theme — warm sand / parchment so the toggle stays on-brand
+   instead of dropping to a cold default grey.
+   ===================================================================== */
+:root[data-theme="light"] {
+    --theme: #F5ECDA;          /* warm paper */
+    --entry: #EFE3CE;
+    --tertiary: #E5D6BC;
+    --code-block-bg: #EBDFC8;
+    --code-bg: #EBDFC8;
+    --border: #D8C4A2;
+    --primary: #3A271A;        /* espresso text */
+    --content: #3A271A;
+    --secondary: #7A5C3C;
+    --gold: #A86A12;
+    --ember: #C2521F;
+    --ember-bright: #9C3F15;
+    --primary-accent: #C2521F;
+}
+:root[data-theme="light"] h1,
+:root[data-theme="light"] h2,
+:root[data-theme="light"] h3,
+:root[data-theme="light"] h4,
+:root[data-theme="light"] h5,
+:root[data-theme="light"] h6 {
+    color: var(--gold);
+}
+:root[data-theme="light"] .highlight pre,
+:root[data-theme="light"] pre,
+:root[data-theme="light"] code {
+    color: #4A3520 !important;
+}
+:root[data-theme="light"] .highlight .k,
+:root[data-theme="light"] .highlight .kd,
+:root[data-theme="light"] .highlight .kn,
+:root[data-theme="light"] .highlight .kr,
+:root[data-theme="light"] .highlight .kt {
+    color: #9C5512 !important;
+}
+:root[data-theme="light"] .highlight .s,
+:root[data-theme="light"] .highlight .s1,
+:root[data-theme="light"] .highlight .s2 {
+    color: #7A4A12 !important;
+}
+:root[data-theme="light"] .highlight .c,
+:root[data-theme="light"] .highlight .c1,
+:root[data-theme="light"] .highlight .cm {
+    color: #927A56 !important;
+    font-style: italic;
+}
+:root[data-theme="light"] ::selection {
+    background: #E7C58C;
+    color: #3A271A;
+}
