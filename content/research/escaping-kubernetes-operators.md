@@ -4,6 +4,10 @@ date: 2026-04-12T12:00:00+03:00
 draft: false
 showToc: true
 hideSummary: true
+description: "A hardlink inside a tar archive walks out of the extraction directory and overwrites files on the Kubernetes host node."
+cover:
+  image: "/img/header-k8s.jpg"
+  alt: "Manga panel: a close-up of narrowed eyes"
 ---
 
 # Escaping Kubernetes Operators: Hardlink Traversal and the ZipSlip Blind Spot

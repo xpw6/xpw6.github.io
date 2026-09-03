@@ -1,0 +1,19 @@
+{{- with site.Params.profileMode }}
+<div class="profile">
+  <div class="profile_inner">
+    <section class="spread">
+      <div class="panel panel--name">
+        <span class="way kanji" aria-hidden="true">道</span>
+        <h1 class="hero-name">{{ .title | default site.Title }}</h1>
+        <p class="hero-role">{{ .subtitle }}</p>
+        {{- partial "social_icons.html" -}}
+      </div>
+
+      <figure class="panel panel--art">
+        <span class="art-crop"><img src="{{ .imageUrl | absURL }}" alt="{{ .imageTitle }}" width="495" height="603" draggable="false"></span>
+        <span class="seal" aria-hidden="true"><span>研究</span></span>
+      </figure>
+    </section>
+  </div>
+</div>
+{{- end }}

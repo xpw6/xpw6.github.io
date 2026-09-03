@@ -1,0 +1,4 @@
+{{- if not .Date.IsZero -}}
+<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date | time.Format (default ":date_long" site.Params.DateFormat) }}</time>
+{{- end }}
+{{- if (.Param "ShowReadingTime") }}<span class="meta-sep" aria-hidden="true"></span><span>{{ .ReadingTime }} min read</span>{{ end }}

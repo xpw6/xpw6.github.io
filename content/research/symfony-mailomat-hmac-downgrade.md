@@ -4,6 +4,10 @@ date: 2026-06-12T12:00:00+03:00
 draft: false
 showToc: true
 hideSummary: true
+description: "The webhook signature header names its own hash algorithm, so the attacker picks the weakest one. CVE-2026-48747."
+cover:
+  image: "/img/header-symfony.jpg"
+  alt: "Manga panel: a blindfolded swordsman"
 ---
 
 # When the Request Picks the Algorithm: HMAC Downgrade in Symfony's Mailomat Webhook Parser (CVE-2026-48747)

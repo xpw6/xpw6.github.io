@@ -2,29 +2,38 @@ baseURL = 'https://xpw6.github.io/'
 languageCode = 'en-us'
 title = 'Essam Alanazi'
 theme = 'PaperMod'
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "404", "section"]
+uglyURLs = true
 
 [params]
   env = 'production'
-  defaultTheme = 'dark'
+  defaultTheme = 'light'
   disableThemeToggle = false
   hideFooter = true
   ShowReadingTime = true
   ShowShareButtons = false
   ShowPostNavLinks = true
-  ShowBreadCrumbs = true
+  ShowBreadCrumbs = false
   ShowCodeCopyButtons = true
   mainSections = ["research"]
   disableSpecial1stPost = true
-  
+
+  [markup]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      typographer = false
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    codeFences = true
+
   [params.profileMode]
     enabled = true
     title = "Essam Alanazi"
-    subtitle = "Researcher"
-    imageUrl = "josh.gif"
-    imageWidth = 250
-    imageHeight = 250
-    imageTitle = "Essam Alanazi"
-    
+    subtitle = "Security researcher"
+    imageUrl = "/img/kojiro.jpg"
+    imageTitle = "Ink drawing: a swordsman seated in a winter garden"
+
   [[params.socialIcons]]
     name = "X"
     url = "https://x.com/xxpw666"

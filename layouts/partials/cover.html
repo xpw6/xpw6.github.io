@@ -1,0 +1,8 @@
+{{- with .cxt }}
+{{- if (and .Params.cover.image (not $.isHidden)) }}
+<figure class="entry-cover">
+  <img loading="{{ cond $.IsSingle "eager" "lazy" }}" src="{{ .Params.cover.image | absURL }}"
+       alt="{{ .Params.cover.alt | default "" }}">
+</figure>
+{{- end }}
+{{- end -}}
