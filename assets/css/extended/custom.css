@@ -376,6 +376,9 @@ a:hover { color: var(--shu); }
     background: var(--washi);
     border-bottom: var(--rule-w) solid var(--rule);
     line-height: 0;
+    /* the image multiplies onto this figure's own paper, and nothing else:
+       without this it also blends with whatever sits behind the panel */
+    isolation: isolate;
 }
 .entry-cover img {
     width: 100%;
@@ -416,6 +419,8 @@ a:hover { color: var(--shu); }
     top: 0;
     bottom: 0;
     width: 4px;
+    z-index: 2;
+    pointer-events: none;
     background: var(--shu);
     opacity: 0;
     transition: opacity .18s ease;
